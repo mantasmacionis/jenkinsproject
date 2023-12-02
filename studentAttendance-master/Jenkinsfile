@@ -1,0 +1,45 @@
+pipeline {
+    agent any
+
+    environment {
+        JAVA_HOME = 'C:/Program Files/Java/jdk-21'
+        PATH = "C:/Program Files/Java/jdk-21/bin:$PATH"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                script {
+                    // Git checkout
+                    checkout scm
+                }
+            }
+        }
+
+        stage('Build') {
+            steps {
+                script {
+                    // Compile Java files
+                    sh 'javac -d C:/Users/35387/IdeaProjects/studentAttendance-master/target C:/Users/35387/IdeaProjects/studentAttendance-master/**/*.java'
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                script {
+                    // Run JUnit 5 tests
+                   sh 'java -cp C:/Users/35387/IdeaProjects/studentAttendance-master/target:C:/Users/35387/IdeaProjects/studentAttendance-master:C:/Users/35387/IdeaProjects/studentAttendance-master/lib/* org.junit.platform.console.ConsoleLauncher --select-class StudentTest'
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                script {
+                     echo 'Pipeline completed successfully!'
+                }
+            }
+        }
+    }
+}
