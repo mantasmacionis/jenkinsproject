@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     // Git checkout
-                    checkout([$class: 'GitSCM', branches: [[name: '**']], userRemoteConfigs: [[url: 'https://github.com/mantasmacionis/jenkinsproject']]])
+                    checkout([$class: 'GitSCM', branches: [[name: '**']], userRemoteConfigs: [[url: 'https://github.com/mantasmacionis/jenkinsproject.git']]])
                 }
             }
         }
