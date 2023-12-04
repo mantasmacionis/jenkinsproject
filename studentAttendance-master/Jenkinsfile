@@ -6,8 +6,7 @@ pipeline {
             steps {
                 script {
                     // Git checkout
-                    git 'https://github.com/mantasmacionis/jenkinsproject.git'
-
+                    git url: 'https://github.com/mantasmacionis/jenkinsproject.git'
                 }
             }
         }
