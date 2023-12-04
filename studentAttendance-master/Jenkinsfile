@@ -1,15 +1,14 @@
 pipeline {
     agent any
 
-    stages {
-        stage('Checkout') {
-            steps {
-                script {
-                    // Git checkout
-                    git url: 'https://github.com/mantasmacionis/jenkinsproject'
-                }
+    stage('Checkout') {
+        steps {
+            script {
+                // Git checkout
+                git branch: 'main', credentialsId: 'c225e912-8f08-4a7c-93c1-22c60f76361d', url: 'https://github.com/mantasmacionis/jenkinsproject.git'
             }
         }
+    }
 
         stage('Build') {
             steps {
