@@ -1,19 +1,20 @@
 pipeline {
     agent any
 
-    stage('Checkout') {
-        steps {
-            script {
-                // Git checkout
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout']], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/mantasmacionis/jenkinsproject.git']]])
+    stages {
+        stage('Checkout') {
+            steps {
+                script {
+                    // Checkout the code from the Git repository
+                    git 'https://github.com/mantasmacionis/jenkinsproject.git'
+                }
             }
         }
-    }
 
         stage('Build') {
             steps {
                 script {
-                    // Compile Java files
+                    // Compile your Java code
                     sh 'javac -d . *.java'
                 }
             }
@@ -22,16 +23,8 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    // Run JUnit 5 tests
-                   sh 'java -cp . StudentTest'
-                }
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                script {
-                     echo 'Pipeline completed successfully!'
+                    // Run your Java tests
+                    sh 'java -cp . StudentTest'
                 }
             }
         }
