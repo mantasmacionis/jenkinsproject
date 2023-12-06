@@ -20,7 +20,7 @@ pipeline {
         stage('Test') {
             steps {
              echo "Running tests"
-                            bat 'java -cp C:\\Users\\35387\\.jenkins\\workspace\\jenkinsca\\Jenkinsproject\\out\\production\\jenkinsproject;C:\\Users\\35387\\.jenkins\\workspace\\jenkinsca\\Jenkinsproject\\lib\\junit-platform-console-standalone-1.9.3.jar org.junit.platform.console.ConsoleLauncher --class-path out/production/jenkinsproject --select-class StudentTest'
+             bat 'java -cp C:\\Users\\35387\\.jenkins\\workspace\\jenkinsca\\Jenkinsproject\\out\\production\\jenkinsproject;C:\\Users\\35387\\.jenkins\\workspace\\jenkinsca\\Jenkinsproject\\lib\\junit-platform-console-standalone-1.9.3.jar org.junit.platform.console.ConsoleLauncher --class-path out/production/jenkinsproject --select-class StudentTest'
             }
         }
     }
