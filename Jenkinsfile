@@ -13,7 +13,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building the Java project"
-                bat 'javac -d bin src/Student src/StudentTest -cp lib/junit-platform-console-standalone-1.9.3.jar'
+                bat 'javac -d C:\\Users\\35387\\.jenkins\\workspace\\jenkinsca\\Jenkinsproject\\out\\production\\jenkinsproject C:\\Users\\35387\\.jenkins\\workspace\\jenkinsca\\Jenkinsproject\\src\\Student.java C:\\Users\\35387\\.jenkins\\workspace\\jenkinsca\\Jenkinsproject\\src\\StudentTest.java -cp C:\\Users\\35387\\.jenkins\\workspace\\jenkinsca\\Jenkinsproject\\lib\\junit-platform-console-standalone-1.9.3.jar'
             }
         }
 
