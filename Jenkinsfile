@@ -13,7 +13,7 @@ pipeline {
         stage('Build') {
             steps {
             echo "test build"
-                     bat 'javac -d bin src/Student.java src/StudentTest.java --class-path ./lib/junit-platform-console-standalone-1.9.3.jar'
+                     bat 'javac -d bin src\\Student.java src\\StudentTest.java --class-path .\\lib\\junit-platform-console-standalone-1.9.3.jar'
             }
         }
 
