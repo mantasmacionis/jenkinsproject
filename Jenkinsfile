@@ -13,14 +13,14 @@ pipeline {
         stage('Build') {
             steps {
             echo "test build"
-                     bat 'javac -d bin src\\Student.java src\\StudentTest.java --class-path .\\lib\\junit-platform-console-standalone-1.9.3.jar'
+                      bat 'javac -d bin src\\Student.java src\\StudentTest.java -cp .\\lib\\junit-platform-console-standalone-1.9.3.jar'
             }
         }
 
         stage('Test') {
             steps {
             echo "test check "
-                    sh 'java -jar lib/junit-platform-console-standalone-1.9.3.jar --class-path bin --select-class StudentTest'
+                    bat 'java -jar lib/junit-platform-console-standalone-1.9.3.jar --class-path bin --select-class StudentTest'
             }
         }
     }
