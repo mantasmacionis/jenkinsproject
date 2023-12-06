@@ -13,9 +13,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building the Java project"
-                script {
                     bat 'javac -d bin src\\Student.java src\\StudentTest.java -cp lib\\junit-platform-console-standalone-1.9.3.jar'
-                }
+
             }
         }
 
